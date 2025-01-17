@@ -21,6 +21,11 @@ public class BaseTest {
         Configuration.browserSize = config.browserSize();
         Configuration.timeout = config.timeout();
         open("/");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
     }
 
     @AfterEach

@@ -3,6 +3,7 @@ package tests;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Allure;
+import org.apache.commons.io.output.ByteArrayOutputStream;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.JavascriptExecutor;
 import ru.yandex.qatools.ashot.AShot;
@@ -13,7 +14,6 @@ import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 
