@@ -45,13 +45,13 @@ public class MainPage extends HeaderButtons {
     }
 
     public MainPage clickElementOnCanvas(double x, double y) {
-        String clickScript = "var canvas = arguments[0];" +
-                "var ctx = canvas.getContext('2d');" +
-                "ctx.canvas.dispatchEvent(new MouseEvent('click', {" +
+        String clickScript = "var event = new MouseEvent('click', {" +
                 "    clientX: arguments[1]," +
                 "    clientY: arguments[2]," +
-                "    bubbles: true" +
-                "}));";
+                "    bubbles: true," +
+                "    cancelable: true" +
+                "});" +
+                "arguments[0].dispatchEvent(event);";
         Selenide.executeJavaScript(clickScript, buttonTextLeftBar, x, y);
         return this;
     }
