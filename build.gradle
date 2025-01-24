@@ -16,6 +16,7 @@ dependencies {
     implementation 'com.codeborne:selenide:6.19.1'
     implementation 'ru.yandex.qatools.ashot:ashot:1.5.4'
     implementation 'org.aeonbits.owner:owner:1.0.12'
+    implementation 'com.microsoft.playwright:playwright:1.49.0'
 }
 
 test {
@@ -25,4 +26,9 @@ test {
         systemProperties(System.getProperties())
         systemProperty 'junit.jupiter.extensions.autodetection.enabled', true
     }
+}
+
+task runPlaywrightCLI(type: Exec) {
+    workingDir = projectDir
+    commandLine 'mvn', 'exec:java', '-Dexec.mainClass=com.microsoft.playwright.CLI', '-Dexec.args="codegen https://www.google.com/"'
 }
